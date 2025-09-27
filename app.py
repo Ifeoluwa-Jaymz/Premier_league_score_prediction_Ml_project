@@ -7,6 +7,14 @@ from sklearn.model_selection import train_test_split
 import numpy as np
 from scipy.stats import poisson
 import seaborn as sns
+from scripts.update_data import update_data
+
+st.title(" Premier League Match Predictor")
+
+if st.button(" Refresh Latest Data from FBref"):
+    with st.spinner("Fetching latest data..."):
+        update_data()
+    st.success("Data refreshed! Reload the page to see updates.")
 
 # Load and prepare data
 @st.cache_data
